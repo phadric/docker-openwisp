@@ -119,8 +119,8 @@ services:
          - dashboard.internal
          - api.internal
     ports:
-      - "80:80"
-      - "443:443"
+      - "180:80"
+      - "1443:443"
     depends_on:
       - dashboard
       - api
