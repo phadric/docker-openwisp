@@ -126,7 +126,7 @@ services:
       - api
       - websocket
 
-  freeradius:
+  radius:
     image: openwisp/openwisp-freeradius:latest
     restart: always
     build:
@@ -152,21 +152,6 @@ services:
       - .env
     volumes:
       - openwisp_certs:/etc/ssl/mail
-
-  openvpn:
-    image: openwisp/openwisp-openvpn:latest
-    restart: always
-    build:
-      context: images
-      dockerfile: openwisp_openvpn/Dockerfile
-    ports:
-      - "1194:1194/udp"
-    env_file:
-      - .env
-    depends_on:
-      - postgres
-    cap_add:
-      - NET_ADMIN
 
   postgres:
     image: mdillon/postgis:11-alpine
